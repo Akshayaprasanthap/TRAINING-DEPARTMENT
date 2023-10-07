@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<style media="screen">
+      *,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #080710;
+}
+/* .background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+} */
+/* .background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+} */
+.shape:first-child{
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
+    left: -80px;
+    top: -80px;
+}
+.shape:last-child{
+    background: linear-gradient(
+        to right,
+        #ff512f,
+        #f09819
+    );
+    right: -30px;
+    bottom: -80px;
+}
+form *{
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+form h3{
+    margin-top: 300px;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+/* button{
+    margin-top: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+} */
+.button-div{
+    margin-left: 620px;
+    margin-top: 30px;
+    width:300px;
+    height:60px;
+    border:2px solid #eee;
+    background-color:#b6bdc9;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:7px;
+    padding:7px;
+}
+
+.signup-button{
+    width:100%;
+    height:55px;
+    margin-right:7px;
+    border:none;
+    border-radius:5px;
+    background-color:#000000;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.login-button{
+    width:100%;
+    height:55px;
+    border:none;
+    border-radius:5px;
+    font-size:17px;
+    font-weight:600;
+    color:#fff;
+    background-color:#ff512f;
+    cursor:pointer;
+}
+
+
+.login-button:hover{
+    
+    background-color:rgb(243, 52, 4);
+}
+
+
+.signup-button:hover{
+    
+    background-color:#131313;
+}
+a{
+    text-decoration: none;
+}
+@media (max-width: 600px) {
+    .button-div {
+    margin-left: 15px;
+    width: 250px;
+
+   
+}
+
+}
+</style>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <!-- Pills navs -->
+    <form action="">
+        <div class="container">
+        <h3>CHOOSE OPTION</h3>
+    <div class="button-div">
+    
+        <button class="signup-button"><a href="/addtrainer">Signup</a> </button>
+        <button class="login-button"><a href="/login">Login </a></button>
+    </div><br><br>
+</div>
+</form>
+    
+    <br>
+  <!-- Pills navs -->
+  
+  <!-- Pills content -->
+
+</body>
+</html>
