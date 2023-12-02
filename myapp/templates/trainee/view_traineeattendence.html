@@ -102,6 +102,7 @@
 
 table{
             width: 40vw;
+            background-color: white;
 
     }
     th{
@@ -128,6 +129,12 @@ table{
     a:hover{
         color: rgb(76, 0, 255);
         text-decoration: none;
+    }
+    .c{
+        background-color: #111827;
+        color: white;
+        padding: 30px;
+        border-radius: 20px;
     }
 
         #b{
@@ -473,18 +480,19 @@ table{
 <body>
     <section id="menu">
         <div class="logo">
-            <img src="{{ trainer.timage.url }}"  width="200" height="50" class="rounded-circle">
+            <!-- <img src="{{ trainer.timage.url }}"  width="200" height="50" class="rounded-circle"> -->
             <!-- <img src="{% static 'image/adminimg2.jpg' %}" alt=""> -->
-            <h2 style="font-size: 2.5vw;"> Dashboard</h2>
+            <h2 style="font-size: 2.5vw;">{{ request.session.name}}</h2>
         </div>
 
         <div class="items">
             <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/traineeindex">Dashboard</a></li>
-         <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/cls_schdl">class schedule</a></li> 
-           <!-- <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/view_attendence_trainee">view trainee attendence</a></li> -->
-            <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/view_attendencetrainee">Attendence</a></li>
-            <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/view_task_trainee">Task</a></li>
-            <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/leaverqst_trainee">Leave</a></li>
+            <li><i class="fa fa-bars" aria-hidden="true"></i><a href="/cls_schdl">class schedule</a></li> 
+              <!-- <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/view_attendence_trainee">view trainee attendence</a></li> -->
+               <li><i class="fa fa-plus" aria-hidden="true"></i><a href="/view_attendencetrainee">Attendence</a></li>
+               <li><i class="fa fa-tasks" aria-hidden="true"></i><a href="/view_task_trainee">Task</a></li>
+               <li><i class="fa fa-clock-o" aria-hidden="true"></i><a href="/leaverqst_trainee">Leave</a></li>
+               <li><i class="fa fa-user" aria-hidden="true"></i><a href="/viewtprofile">profile</a></li>
 
 
 
@@ -506,8 +514,9 @@ table{
                 <!-- <a href="" class="text-dark">
                     <i class="fas fa-envelope fa-2x"></i>
                     <span class="badge rounded-pill badge-notification bg-danger">9</span>
-                </a> --><button class="btn btn-default btn-lg btn-link"><a href="/view_task_trainee"> <i class="fa fa-bell" aria-hidden="true" style="color: white;"></i></a>
-                <span class="badge">{{res}}</span></button>
+                </a> -->
+                <!-- <button class="btn btn-default btn-lg btn-link"><a href="/view_task_trainee"> <i class="fa fa-bell" aria-hidden="true" style="color: white;"></i></a>
+                <span class="badge">{{res}}</span></button> -->
                 <!-- <img src="{% static 'image/adminimg2.jpg' %}" alt="" width="30" height="30"> -->
                 <button class="btn btn-default btn-lg btn-link"><a href=" /changepass " ><i class="fa fa-key" aria-hidden="true" style="color: white;"></i></a>
                     <span class="badge"></span></button>
@@ -517,12 +526,37 @@ table{
                         <span class="badge"></span></button>
             </div>
         </div>
+        <form action="{% url 'view_attendencetrainee_post' id %}" method="post">
+        {% csrf_token %}
+
         <div class="container mt-5" id="show">
             <h1>VIEW ATTENDENCE DETAILS</h1><br><br>
+            <div class="c"><br><br><br>
+    
+    
+                <div class="form-group">
+                    <label for="" class="text-dark">START DATE:</label>
+                    <input type="date" name="fdate" value="{{from}}" required class="form-control" placeholder="START DATE"><br>
+                </div>
+                <div class="form-group">
+                    <label for="" class="text-dark">END DATE:</label>
+                    <input type="date" name="tdate" value="{{to}}" required class="form-control" placeholder="END DATE"><br>
+                </div>
+               
+                <button type="submit" class="btn btn-outline-danger">Submit</button>
+
+                <button type="button" class="btn btn-outline-danger" value="reset" onclick="this.form.reset()">Clear</button>
+
+                
+            </div><br><br>
+
+
+
+
             
             <!-- <table border="2px"> -->
                 <div style="overflow-x:auto;">
-                <table border="2px" class="table table-striped table-hover table-bordered table-secondary ">
+                <table border="2px" class="table table-striped table-hover table-bordered ">
                 <thead class="thead-dark">
                     <tr>
                         <th>SERIAL NO</th>
@@ -545,7 +579,7 @@ table{
         </div>
         </div>
      
-
+        </form>
 
 
     </section>

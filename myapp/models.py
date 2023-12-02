@@ -53,11 +53,15 @@ class Task(models.Model):
     end_date=models.CharField(max_length=200)
     status=models.CharField(max_length=200)
     TRAINER=models.ForeignKey(Trainer,default=1,on_delete=models.CASCADE,related_name='Teacher')
-    file=models.FileField(upload_to="media/", null=True)
+    file=models.FileField(upload_to="media/task/", null=True)
     
 
-def __str__(self):
-    return self.filename
+class File_upload(models.Model):
+    task = models.ForeignKey(Task, on_delete=models.CASCADE, null=True, blank=True)
+    file = models.FileField(upload_to='media/task/',null=True)
+
+# def __str__(self):
+#     return self.filename
     
 
 class classschedule(models.Model):

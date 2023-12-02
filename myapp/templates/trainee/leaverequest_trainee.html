@@ -112,7 +112,7 @@
     }
 
     button {
-        background-color: darkgoldenrod;;
+        background-color: darkgoldenrod;
         /* Green */
         border: none;
         color: white;
@@ -386,14 +386,12 @@
     }
 
     .profile .log{
-        color: black;
-        
-
-        
-        
-     
-      
+        color: black; 
     }
+    .bb{
+            font-size: 2vw;
+        }
+    
 
     @media (max-width: 769px) {
         #menu {
@@ -440,6 +438,15 @@
     }
 
     @media (max-width:400px) {
+        button{
+            font-size: 3vw;
+            
+
+            
+        }
+        .bb{
+            font-size: 5vw;
+        }
         #interface .navigation {
             padding: 2px;
 
@@ -490,19 +497,19 @@
 <body>
     <section id="menu">
         <div class="logo">
-            <img src="{{ trainer.timage.url }}"  width="200" height="50" class="rounded-circle">
+            <!-- <img src="{{ trainer.timage.url }}"  width="200" height="50" class="rounded-circle"> -->
             <!-- <img src="{% static 'image/adminimg2.jpg' %}" alt=""> -->
-            <h2 style="font-size: 2.5vw;">{{tname}}</h2>
+            <h2 style="font-size: 2.5vw;">{{ request.session.name}}</h2>
         </div>
 
         <div class="items">
             <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/traineeindex">Dashboard</a></li>
-
-         <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/cls_schdl">class schedule</a></li> 
-           <!-- <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/view_attendence_trainee">view trainee attendence</a></li> -->
-            <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/view_attendencetrainee">Attendence</a></li>
-            <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/view_task_trainee">Task</a></li>
-            <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/leaverqst_trainee">Leave</a></li>
+            <li><i class="fa fa-bars" aria-hidden="true"></i><a href="/cls_schdl">class schedule</a></li> 
+              <!-- <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/view_attendence_trainee">view trainee attendence</a></li> -->
+               <li><i class="fa fa-plus" aria-hidden="true"></i><a href="/view_attendencetrainee">Attendence</a></li>
+               <li><i class="fa fa-tasks" aria-hidden="true"></i><a href="/view_task_trainee">Task</a></li>
+               <li><i class="fa fa-clock-o" aria-hidden="true"></i><a href="/leaverqst_trainee">Leave</a></li>
+               <li><i class="fa fa-user" aria-hidden="true"></i><a href="/viewtprofile">profile</a></li>
 
 
 
@@ -524,8 +531,9 @@
                 <!-- <a href="" class="text-dark">
                     <i class="fas fa-envelope fa-2x"></i>
                     <span class="badge rounded-pill badge-notification bg-danger">9</span>
-                </a> --><button class="btn btn-default btn-lg btn-link"><a href="/view_task_trainee"> <i class="fa fa-bell" aria-hidden="true"></i></a>
-                <span class="badge">{{res}}</span></button>
+                </a> -->
+                <!-- <button class="btn btn-default btn-lg btn-link"><a href="/view_task_trainee"> <i class="fa fa-bell" aria-hidden="true"></i></a>
+                <span class="badge">{{res}}</span></button> -->
                 <!-- <img src="{% static 'image/adminimg2.jpg' %}" alt="" width="30" height="30"> -->
                 <button class="btn btn-default btn-lg btn-link"><a href=" /changepass " ><i class="fa fa-key" aria-hidden="true" style="color: white;"></i></a>
                     <span class="badge"></span></button>
@@ -560,12 +568,15 @@
                         <label for="" class="text-dark">REASON:</label>
                         <input type="text" name="reason" required class="form-control" placeholder="REASON"><br>
                     </div>
-                    <button type="submit">Submit</button>
+                    <div class="bb">
+                        <button type="submit">Submit</button>
     
                     <button type="button" value="reset" onclick="this.form.reset()">Clear</button>
     
                     <a class="aa" href="/view_traineeleave"><button type="button" >View</button>
                         </a>
+                    </div>
+                    
                 </div>
     
                 

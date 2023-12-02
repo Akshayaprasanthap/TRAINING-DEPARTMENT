@@ -25,6 +25,7 @@
 <style>
     table{
             width: 40vw;
+            background-color: white;
 
     }
     th{
@@ -390,18 +391,19 @@
 <body>
     <section id="menu">
         <div class="logo">
-            <img src="{{ trainer.timage.url }}"  width="200" height="50" class="rounded-circle">
+            <!-- <img src="{{ trainer.timage.url }}"  width="200" height="50" class="rounded-circle"> -->
             <!-- <img src="{% static 'image/adminimg2.jpg' %}" alt=""> -->
-            <h2 style="font-size: 2.5vw;"> Dashboard</h2>
+            <h2 style="font-size: 2.5vw;">{{ request.session.name}}</h2>
         </div>
 
         <div class="items">
             <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/traineeindex">Dashboard</a></li>
-         <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/cls_schdl">class schedule</a></li> 
-           <!-- <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/view_attendence_trainee">view trainee attendence</a></li> -->
-            <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/view_attendencetrainee">Attendence</a></li>
-            <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/view_task_trainee">Task</a></li>
-            <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/leaverqst_trainee">Leave</a></li>
+            <li><i class="fa fa-bars" aria-hidden="true"></i><a href="/cls_schdl">class schedule</a></li> 
+              <!-- <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/view_attendence_trainee">view trainee attendence</a></li> -->
+               <li><i class="fa fa-plus" aria-hidden="true"></i><a href="/view_attendencetrainee">Attendence</a></li>
+               <li><i class="fa fa-tasks" aria-hidden="true"></i><a href="/view_task_trainee">Task</a></li>
+               <li><i class="fa fa-clock-o" aria-hidden="true"></i><a href="/leaverqst_trainee">Leave</a></li>
+               <li><i class="fa fa-user" aria-hidden="true"></i><a href="/viewtprofile">profile</a></li>
 
 
 
@@ -423,8 +425,9 @@
                 <!-- <a href="" class="text-dark">
                     <i class="fas fa-envelope fa-2x"></i>
                     <span class="badge rounded-pill badge-notification bg-danger">9</span>
-                </a> --><button class="btn btn-default btn-lg btn-link"><a href="/view_task_trainee"> <i class="fa fa-bell" aria-hidden="true" style="color: white;"></i></a>
-                <span class="badge">{{res}}</span></button>
+                </a> -->
+                <!-- <button class="btn btn-default btn-lg btn-link"><a href="/view_task_trainee"> <i class="fa fa-bell" aria-hidden="true" style="color: white;"></i></a>
+                <span class="badge">{{res}}</span></button> -->
                 <!-- <img src="{% static 'image/adminimg2.jpg' %}" alt="" width="30" height="30"> -->
                 <button class="btn btn-default btn-lg btn-link"><a href=" /changepass " ><i class="fa fa-key" aria-hidden="true" style="color: white;"></i></a>
                     <span class="badge"></span></button>
@@ -439,7 +442,7 @@
         
             <!-- <table border="2px"> -->
                 <div style="overflow-x:auto;">
-                <table border="2px" class="table table-striped table-hover table-bordered table-secondary ">
+                <table border="2px" class="table table-striped table-hover table-bordered">
                 <thead class="">
                     <tr>
                         <th>SERIAL NO</th>
@@ -449,7 +452,7 @@
                         <th>STATUS</th>
                         
                         <th>FILE</th>
-                        <th></th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -460,7 +463,7 @@
                         <td>{{ s.start_date }}</td>
                         <td>{{ s.end_date }}</td>
                         {% if s.status == "submitted" %}
-                        <td><a href="/view_upload"><button class="btn">VIEW</button></a></td>
+                        <td><a href="/view_download/{{ s.id }}"><button class="btn">VIEW</button></a></td>
                         {% else %}
                         <td>{{ s.status }}</td>
         
@@ -471,9 +474,13 @@
                              <button class="btn ">UPLOAD</button> 
                             </a>
                         </td>
+                        <!-- {{ data2 }} -->
+                        <!-- {% for ij in data2 %}
+                        {{ ij.file }}
                        
-                        <td><a href="{{data.file.url}}" download="{{data.file.url}}"><button class="btn ">download</button></a></td>
-                    
+                       
+                        <td><a href="{{ ij.file.url}}" download="{{ ij.file }}"><button class="btn ">download</button></a></td>
+                        {% endfor %} -->
                         <!-- <td><a href="/view_download/{{ s.id }}"><button class="btn">view file</button></a></td> -->
                         
 

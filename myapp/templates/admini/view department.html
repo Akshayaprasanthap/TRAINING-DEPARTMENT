@@ -127,6 +127,9 @@ table{
             width: 40vw; 
            background-color: white;
     }
+    .h2{
+            font-size: 2vw;
+        }
     thead{
         background-color: #111827;
         color: white;
@@ -432,6 +435,9 @@ table{
     }
 
     @media (max-width:400px) {
+        .h2{
+            font-size: 5vw;
+        }
         #interface .navigation {
             padding: 2px;
 
@@ -482,20 +488,21 @@ table{
 <body>
     <section id="menu">
         <div class="logo">
-            <img src="{% static 'image/adminimg2.jpg' %}" alt="">
-            <h2 style="font-size: 2.5vw;">Admin Dashboard</h2>
+            <img src="{% static 'image/Admin-Pro.png' %}" alt="">
+            <h2 class="h2">Admin</h2>
         </div>
 
         <div class="items">
             <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/adminhome">Dashboard</a></li>
-            <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/view_register">Registration Notification</a></li>
-            <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/view_both">Approved Details</a></li>
-            <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/add_dept">Add Department</a></li>
-            <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/view_dept">View Department</a></li>
-            <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/view_dept_trainer">View Staff</a></li>
-            <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/attendence">Trainers attendence</a></li>
-            <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/view_trainee_attendence">Trainee attendence</a></li>
-            <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/view_leave">Leave request</a></li>
+            <li><i class="fa fa-address-book" aria-hidden="true"></i><a href="/adminaddtrainer">Add Trainer</a></li>
+            <li><i class="fa fa-info" aria-hidden="true"></i><a href="/view_register">Registration Details</a></li>
+            <li><i class="fa fa-address-book" aria-hidden="true"></i><a href="/view_both">Approved Details</a></li>
+            <li><i class="fa fa-bars" aria-hidden="true"></i><a href="/add_dept">Department</a></li>
+            <!-- <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/view_dept">View Department</a></li> -->
+            <li><i class="fa fa-user-circle" aria-hidden="true"></i><a href="/view_dept_trainer">View Staff</a></li>
+            <li><i class="fa fa-plus" aria-hidden="true"></i><a href="/attendence">Trainers Attendence</a></li>
+            <li><i class="fa fa-user-plus" aria-hidden="true"></i><a href="/view_trainee_attendence">Trainee Attendence</a></li>
+            <li><i class="fa fa-plus-circle" aria-hidden="true"></i><a href="/view_leave">Leave</a></li>
         </div>
     </section>
     <section id="interface">
@@ -513,8 +520,9 @@ table{
                 <!-- <a href="" class="text-dark">
                     <i class="fas fa-envelope fa-2x"></i>
                     <span class="badge rounded-pill badge-notification bg-danger">9</span>
-                </a> --><button class="btn btn-default btn-lg btn-link"><a href="/view_register"> <i class="fa fa-bell" aria-hidden="true" style="color: white;"></i></a>
-                <span class="badge">{{res}}</span></button>
+                </a> -->
+                <!-- <button class="btn btn-default btn-lg btn-link"><a href="/view_register"> <i class="fa fa-bell" aria-hidden="true" style="color: white;"></i></a>
+                <span class="badge">{{res}}</span></button> -->
                 <!-- <img src="{% static 'image/adminimg2.jpg' %}" alt="" width="30" height="30"> -->
                 
 
@@ -549,6 +557,11 @@ table{
                                 
                                 <button class="btn btn-outline-danger" >ALLOCATE TRAINER</button>
                             </a>
+                            <!-- <br><br>
+                            <a class="aa" href="/view_Trainers/{{s.id}}">
+                                
+                                <button class="btn btn-outline-danger" >VIEW TRAINER</button>
+                            </a> -->
                         </td>
                         
                         <td>

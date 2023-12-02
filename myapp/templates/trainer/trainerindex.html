@@ -33,7 +33,9 @@
         font-family: 'Popins', sans-serif;
 
     }
-
+    .h2{
+        font-size: 2vw;
+    }
     body {
         width: 100%;
         background: #000000;
@@ -167,7 +169,7 @@
         position: absolute;
         background-color: red;
         top: 10px; 
-        right: 92px; 
+        right: 139px; 
         padding: 5px 10px; 
         border-radius: 50%;
         color: white;
@@ -307,6 +309,9 @@
     }
 
     @media (max-width:400px) {
+        .h2{
+            font-size: 5vw;
+        }
         #interface .navigation {
             padding: 2px;
 
@@ -357,19 +362,25 @@
 <body>
     <section id="menu">
         <div class="logo">
-            <img src="{{ trainer.timage.url }}"  width="200" height="50" class="rounded-circle">
+            <!-- <img src=""  width="200" height="50" class="rounded-circle"> -->
             <!-- <img src="{% static 'image/adminimg2.jpg' %}" alt=""> -->
-            <h2 style="font-size: 2.5vw;"> Dashboard</h2>
+
+            <!-- <img src="{{ trainer.trainer.timage.url }}"  width="200" height="200" class="rounded-circle"> -->
+            
+           
+            <h2 class="h2">{{ request.session.name }}</h2>
         </div>
 
         <div class="items">
             <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/trainerindex">Dashboard</a></li>
-            <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/view_alloc_dept">view allocated department</a></li>
-            <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/view_trainees_class">trainees and class schedule</a></li>
+            <li><i class="fa fa-bars" aria-hidden="true"></i><a href="/view_alloc_dept">Department</a></li>
+            <!-- <li><i class="fa fa-book" aria-hidden="true"></i><a href="/viewschedule_post">Class Schedule</a></li> -->
 
-            <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/view_attendence_trainee">view trainee attendence</a></li>
-            <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/view_his_attendence">view attendence</a></li>
-            <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/leaverqst">Leave</a></li>
+            <!-- <li><i class="fa fa-user-plus" aria-hidden="true"></i><a href="/view_attendence_trainee">Trainee Attendence</a></li> -->
+            <li><i class="fa fa-bar-chart" aria-hidden="true"></i><a href="/view_his_attendence">Attendence</a></li>
+            <li><i class="fa fa-plus-circle" aria-hidden="true"></i><a href="/leaverqst">Leave</a></li>
+            <li><i class="fa fa-user" aria-hidden="true"></i><a href="/viewprofile">Profile</a></li>
+            
 
 
             
@@ -391,8 +402,8 @@
                     <i class="fas fa-envelope fa-2x"></i>
                     <span class="badge rounded-pill badge-notification bg-danger">9</span>
                 </a> -->
-                <button class="btn btn-default btn-lg btn-link"><a href="#"> <i class="fa fa-bell" aria-hidden="true"></i></a>
-                <span class="badge">{{res}}</span></button>
+                <!-- <button class="btn btn-default btn-lg btn-link"><a href="/view_trainees"> <i class="fa fa-bell" aria-hidden="true"></i></a>
+                <span class="badge">{{ ss }}</span></button> -->
                 <!-- <img src="{% static 'image/adminimg2.jpg' %}" alt="" width="30" height="30"> -->
               
                 
@@ -410,13 +421,13 @@
             </div>
         </div>
 
-        <h3 class="i-name">Dashboard</h3>
+   <h3 class="i-name">Zoft TECH</h3>
         <div class="values">
             <div class="val-box">
                 <i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>
                 <div>
-                    <div>
-                        {{ss}}
+                    <div class="ss" style="color: rgb(255, 255, 255); font-weight: bold;">
+                       <center> {{ss}}</center>
                     </div>
                     <a href="/view_trainees">Trainees</a>
                 </div>
@@ -431,7 +442,7 @@
                 <i class="fa fa-bars" aria-hidden="true"></i>
 
                 <div>
-                    <div>{{ aa }}</div>
+                    <div style="color: rgb(255, 255, 255); font-weight: bold;"><center>{{ aa }}</center> </div>
                     <a href="/view_alloc_deptonly">Departments</a>
                 </div>
 

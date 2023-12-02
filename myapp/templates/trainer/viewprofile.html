@@ -1,0 +1,537 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Popins', sans-serif;
+
+    }
+    button{
+        background-color: rgb(5, 0, 35);
+        color: white;
+    }
+    .h2{
+        font-size: 2vw;
+    }
+    body {
+        width: 100%;
+        background: #000000;
+        position: relative;
+        display: flex;
+    }
+    label{
+        color: white;
+        font-size: large;
+    }
+    #menu {
+        background: #141923;
+        width: 300px;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        color: #fff;
+        padding: 30px 0 0 30px;
+    }
+
+    .logo img {
+        width: 40px;
+        margin-right: 15px;
+    }
+
+    .items {
+        margin-top: 40px;
+
+
+    }
+
+    .items li {
+        list-style: none;
+        padding: 15px 0;
+        transition: 0.3s ease;
+
+    }
+
+    .items li:hover {
+        background-color: #253047;
+        cursor: pointer;
+    }
+
+    .items li:nth-child(1) {
+        border-left: 4px solid #fff;
+    }
+
+    .items li i {
+        color: rgb(134, 141, 151);
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        font-size: 14px;
+        margin: 0 10px 0 25px;
+    }
+
+    .items li:hover i,
+    .items li:hover a {
+        color: #F3F4F6;
+    }
+
+    .items li a {
+        text-decoration: none;
+        color: rgb(134, 141, 151);
+        font-weight: 300px;
+        transition: 0.3s ease;
+    }
+
+    #interface {
+        width: calc(100% - 300px);
+        margin-left: 300px;
+        position: relative;
+    }
+
+    #interface .navigation {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #141923;
+        padding: 15px 30px;
+        border-bottom: 3px solid black;
+        position: fixed;
+        width: calc(100% - 300px);
+
+    }
+
+    #interface .navigation .search {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 10px 14px;
+        border: 1px solid #000000;
+        border-radius: 4px;
+
+    }
+
+    #interface .navigation .search {
+        margin-right: 14px;
+    }
+
+    #interface .navigation .search input {
+        border: none;
+        outline: none;
+        font-size: 14px;
+        background-color: #ffffff;
+    }
+
+    #interface .navigatio .profile {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    #interface .navigatio .profile i {
+        margin-right: 30px;
+        font-size: 19px;
+        font-weight: 400;
+    }
+
+    #interface .navigatio .profile img {
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    .profile .badge{
+        position: absolute;
+        background-color: red;
+        top: 10px; 
+        right: 139px; 
+        padding: 5px 10px; 
+        border-radius: 50%;
+        color: white;
+    }
+      
+
+    .n1 {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    #menu-btn {
+        display: none;
+        color: #2b2b22;
+        font-size: 20px;
+        cursor: pointer;
+        margin-right: 20px;
+    }
+
+    .i-name {
+        color: #444a53;
+        padding: 30px 30px 0 30px;
+        font-size: 24px;
+        font-weight: 700;
+        margin-top: 70px;
+    }
+
+    .values {
+        padding: 30px 30px 0 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .values .val-box {
+        background: #141923;
+        width: 235px;
+        padding: 16px 20px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    /* .values .val-box,
+.values .val-box i{
+    color: #E5E7EB;
+
+} */
+    .values .val-box i {
+        font-size: 25px;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        border-radius: 50%;
+        text-align: center;
+        color: #fff;
+        margin-right: 15px;
+    }
+
+    .values .val-box:nth-child(1) i {
+        background-color: cornflowerblue;
+    }
+
+    .values .val-box:nth-child(2) i {
+        background-color: teal;
+    }
+
+    .values .val-box:nth-child(3) i {
+        background-color: slateblue;
+    }
+
+    .values .val-box:nth-child(4) i {
+        background-color: indianred;
+    }
+
+    .values .val-box a {
+        font-size: 15px;
+        color: #828997;
+        text-decoration: none;
+    }
+
+    .profile .log{
+        color: black;
+        
+
+        
+        
+     
+      
+    }
+
+    @media (max-width: 769px) {
+        #menu {
+            width: 270px;
+            position: fixed;
+            left: -270px;
+            transition: 0.3s ease;
+        }
+
+        #menu.active {
+            left: 0px;
+        }
+
+        #menu-btn {
+            display: initial;
+        }
+
+        #interface {
+            width: 100%;
+            margin-left: 0px;
+            display: inline-block;
+            transition: 0.3s ease;
+        }
+
+        #menu.active~ #interface {
+            width: calc(100% - 270px);
+            margin-left: 270px;
+            transition: 0.3s ease;
+        }
+
+        #interface .navigation {
+            width: 100%;
+        }
+
+        .values {
+            padding: 30px 30px 0 30px;
+            justify-content: flex-start;
+        }
+
+        .values .val-box {
+            padding: 16px 20px;
+            margin: 10px 20px 10px 0;
+        }
+    }
+
+    @media (max-width:400px) {
+        .h2{
+            font-size: 5vw;
+        }
+        .pro{
+            font-size: 8vw;
+            font-weight: bolder;
+        }
+        #interface .navigation {
+            padding: 2px;
+
+        }
+
+        #interface .navigation .search input {
+            width: 100px;
+        }
+        .profile .badge{
+        position: absolute;
+        
+        top: 5px; 
+        right: 25px; 
+     
+      
+    }
+
+        .i-name {
+            padding: 30px 15px 0 15px;
+            margin-top: 90px;
+        }
+
+        .values {
+            padding: 15px 15px 0 15px;
+
+        }
+
+        .values .val-box {
+            width: 100%;
+            margin: 8px 0;
+        }
+        .btn-link:hover, .btn-link:focus {
+        
+            display: inline-block;
+            display: flex;
+
+}
+.profile .log {
+    padding-top: 20px;
+  
+    
+}
+
+    }
+</style>
+
+
+<body>
+    <section id="menu">
+        <div class="logo">
+            <!-- <img src=""  width="200" height="50" class="rounded-circle"> -->
+            <!-- <img src="{% static 'image/adminimg2.jpg' %}" alt=""> -->
+
+            <!-- <img src="{{ trainer.trainer.timage.url }}"  width="200" height="200" class="rounded-circle"> -->
+            
+           
+            <h2 class="h2">{{ request.session.name }}</h2>
+        </div>
+
+        <div class="items">
+            <li><i class="fa fa-pie-chart" aria-hidden="true"></i><a href="/trainerindex">Dashboard</a></li>
+            <li><i class="fa fa-bars" aria-hidden="true"></i><a href="/view_alloc_dept">Department</a></li>
+            <!-- <li><i class="fa fa-book" aria-hidden="true"></i><a href="/view_class_sch">Class Schedule</a></li> -->
+
+            <!-- <li><i class="fa fa-user-plus" aria-hidden="true"></i><a href="/view_attendence_trainee">Trainee Attendence</a></li> -->
+            <li><i class="fa fa-bar-chart" aria-hidden="true"></i><a href="/view_his_attendence">Attendence</a></li>
+            <li><i class="fa fa-plus-circle" aria-hidden="true"></i><a href="/leaverqst">Leave</a></li>
+            <li><i class="fa fa-user" aria-hidden="true"></i><a href="/viewprofile">Profile</a></li>
+            
+
+
+            
+        </div>
+    </section>
+    <section id="interface">
+        <div class="navigation">
+            <div class="n1">
+                <div>
+                    <i id="menu-btn" class="fa fa-bars" aria-hidden="true"></i>
+                </div>
+                <!-- <div class="search">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <input type="text" placeholder="Search">
+                </div> -->
+            </div>
+            <div class="profile">
+                <!-- <a href="" class="text-dark">
+                    <i class="fas fa-envelope fa-2x"></i>
+                    <span class="badge rounded-pill badge-notification bg-danger">9</span>
+                </a> -->
+                <!-- <button class="btn btn-default btn-lg btn-link"><a href="/view_trainees"> <i class="fa fa-bell" aria-hidden="true"></i></a>
+                <span class="badge">{{ ss }}</span></button> -->
+                <!-- <img src="{% static 'image/adminimg2.jpg' %}" alt="" width="30" height="30"> -->
+              
+                
+
+                <button class="btn btn-default btn-lg btn-link"><a href=" /changepass " ><i class="fa fa-key" aria-hidden="true"></i></a>
+                    <span class="badge"></span></button>
+
+                    <button class="btn btn-default btn-lg btn-link"><a  href=" /logout "><i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                        <span class="badge"></span></button>
+    
+                
+                    
+                   
+            </div>
+        </div>
+<br><br><br>
+  
+
+
+        <form method="post" action="">
+            {% csrf_token %}
+    
+       
+            <div class="container">
+        <br><br>
+        <!-- <p>Phone: {{ students.phone }}</p> -->
+        <div class="card"  id="i">
+            <div class="card-body"> 
+                <h1 class="pro" text="display-6">PROFILE DETAILS</h1><br>
+                {% if trainer.timage %}
+                <img src="{{ trainer.timage.url }}"  width="150" height="150" class="rounded-circle"><br>
+                
+                {% else %}
+                <img src="{% static 'images/profile.jpg' %}" alt="" width="200" height="200" class="rounded-circle">
+                {% endif %}
+    
+                <br><br>
+        <div class="card"  id="ss"><br><br>
+            <div class="card-body">
+                <div class="form-group">
+                    <label>Name:   {{ trainer.tname }}</label>
+                    <!-- <input class="form-control" placeholder="Name" type="text" name="first_name" value="{{ trainer.tname }}" disabled><br> -->
+                </div>
+            
+                <div class="form-group">
+                    <label>Address:  {{ trainer.tplace }},{{ trainer.tpost }},{{ trainer.tpin }} </label>
+                    <!-- <input class="form-control" placeholder=" place" type="text" name="place" value="{{ trainer.tplace }}" disabled><br> -->
+                </div>
+    
+                <!-- <div class="form-group">
+                    <label>Pin:   {{ trainer.tpin }}</label>
+                    <input class="form-control" placeholder="pin " type="text" name="pin" value="{{ trainer.tpin }}" disabled><br>
+                </div>
+    
+                <div class="form-group">
+                    <label>Post:  {{ trainer.tpost }}</label>
+                    <input class="form-control" placeholder="Post " type="text" name="post" value="{{ trainer.tpost }}" disabled><br>
+                </div>
+     -->
+                <div class="form-group">
+                    <label>Gender: {{ trainer.gender }}</label>
+                    <!-- <input class="form-control" placeholder="Gender " type="text" name="gender" value="{{ trainer.gender }}" disabled><br> -->
+                </div>
+    
+                <div class="form-group">    
+                    <label>Phone:  {{ trainer.tphn }}</label>
+                    <!-- <input class="form-control" placeholder="Phone Number " type="text" name="phone" value="{{ trainer.tphn }}" disabled><br> -->
+                </div>
+                <div class="form-group">
+                    <label>Email:  {{ trainer.temail }}</label>
+                    <!-- <input class="form-control" placeholder="Email " type="text" name="email" value="{{ trainer.temail }}" disabled><br> -->
+                </div>
+            
+                <div class="form-group">
+                    <label>Department:  {{ trainer.DEPARTMENT.department_name }}</label>
+                    <!-- <input class="form-control" placeholder="gender " type="text" name="Departmen" value="{{ trainer.DEPARTMENT.department_name }}" disabled><br> -->
+                </div>
+    
+                <!-- <div class="form-group">
+                    <label>Image:</label>
+        {% if trainer.timage %}
+        <img src="{{ trainer.timage.url }}"  width="150" height="150" class="img-thumbinail"><br>
+        
+        {% else %}
+        <img src="{% static 'images/profile.jpg' %}" alt="" width="150" height="150" class="img-thumbinail">
+        {% endif %}
+                  
+                </div> -->
+       
+       
+                <div class="row">
+                    <div class="col-sm-12 profile-section text-secondary">
+                        
+                        <!-- <a href=""><button type="submit" >edit</button></a> -->
+                        <!-- <input class="button" type=button value="Previous Page" onClick="javascript:history.go(-1);" id="b"> -->
+                        <!-- <button class="btn btn-outline-danger"  onClick="javascript:history.go(-1);" id="b">Previous Page</button>  -->
+                    </div>
+                </div>
+    <br>
+    
+    </div>
+    </div>
+    </div>
+    </form>
+
+
+
+
+
+    </section>
+
+    <script>
+        $('#menu-btn').click(function () {
+            $('#menu').toggleClass("active");
+        })
+    </script>
+</body>
+
+</html>

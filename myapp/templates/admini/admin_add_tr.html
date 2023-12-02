@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
+</head>
+<style media="screen">
+
+    *,
+*:before,
+*:after{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* .background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+.shape:first-child{
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
+    left: -80px;
+    top: -80px;
+}
+.shape:last-child{
+    background: linear-gradient(
+        to right,
+        #ff512f,
+        #f09819
+    );
+    right: -30px;
+    bottom: -80px;
+} */
+input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    color: white;
+    background-color: rgba(81, 81, 81, 0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+::placeholder{
+    color: #e5e5e5;
+}
+button{
+    margin-top: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+::placeholder{
+    color: #e5e5e5;
+}
+p{
+    color: #b1b1b1;
+    font-size:  1vw;
+}
+h2{
+    font-size: 2vw; 
+    color: white;
+    font-family: cursive;
+}
+
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+.pp{
+    font-size: 2vw;
+}
+
+@media (max-width:400px) {
+    p{
+        font-size: 4vw;
+    }
+    h2{
+        font-size: 5vw;
+    }
+    .pp{
+        font-size: 4vw;
+    }
+}
+
+</style>
+
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+        
+<section class="100vh bg-image" style="background-image: url(https://w0.peakpx.com/wallpaper/774/176/HD-wallpaper-bubbles-circles-dark-form.jpg); background-repeat: no-repeat; background-size: cover;">
+    <!-- background-color: rgb(29, 27, 27); -->
+<div class="mask d-flex align-items-center h-100 gradient-custom-3">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+        <div class="card" style="border-radius: 15px; background-color: rgba(255,255,255,0.13);">
+          <div class="card-body p-5">
+            <h2 class="text-uppercase text-center mb-4" >Create an account</h2>
+
+        <form method="post" action="adminaddtrainer_post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-outline mb-4">
+                <label for="" class="form-label" style="color: white;">Name:</label>
+                <input type="text" name="first_name" required pattern="[a-zA-Z]+[ ][a-zA-Z]+{1,32}" class="form-control" placeholder="Enter your Name"><br>
+            </div>
+            <div class="form-outline mb-4">
+                <label for="" class="form-label" style="color: white;">Place:</label>
+                <input type="text" name="place" required class="form-control" placeholder="Place"><br>
+            </div>
+            <div class="form-group form-outline mb-4">
+                <label for="" class="form-label" style="color: white;">Pin:</label>
+                <input type="text" name="pin" required pattern="[6][0-9]{5}" title="" class="form-control" placeholder="Pin"><br>
+            </div>
+            <div class="form-group form-outline mb-4">
+                <label for="" class="form-label" style="color: white;">Post:</label>
+                <input type="text" name="post" required class="form-control" placeholder="Post"><br>
+            </div>
+            <div class="form-group form-outline mb-4">
+                <label for="" class="form-label" style="color: white;">Gender:</label><br>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                    value="Male">
+                <label class="form-check-label" style="color: white;" for="inlineRadio1">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input"  type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                    value="Female">
+                <label class="form-check-label" style="color: white;" for="inlineRadio2">Female</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input"  type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                    value="Others">
+                <label class="form-check-label" style="color: white;" for="inlineRadio3">Others </label>
+            </div>
+        </div>
+            <div class="form-group form-outline mb-4">
+
+            <label for="" class="form-label" style="color: white;">Department</label>
+            <select class="form-control" name="select" id="qwerty">
+
+                {% for i in Departmen %}
+
+                <option value="{{ i.id }}">{{ i.department_name }}</option>
+
+                {% endfor %}
+        
+            </select>
+        </div>
+            <div class="form-group form-outline mb-4">
+                <label for="" class="form-label" style="color: white;">Phone Number:</label>
+                <input type="text" name="phone" required pattern="[6789][0-9]{9}" class="form-control" placeholder="Phone Number"><br>
+            </div>
+            <div class="form-group form-outline mb-4">
+                <label for="" class="form-label" style="color: white;">Email:</label>
+                <input type="email" name="email" required pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$" title="only alphanumerical characters before and after ‘@’ (no spaces, no special characters). And require a top-level domain use only letters, and have a length of between 2 to 4 characters. " class="form-control" placeholder="Email"><br>
+            </div>
+
+            <div class="form-group form-outline mb-4">
+                <label for="" class="form-label" style="color: white;">Image:</label>
+                <input type="file" name="file" class="form-control" required accept="image/*">
+            </div>
+            <div class="form-group form-outline mb-4">
+                <label for="" class="form-label" style="color: white;">Certificate:</label>
+                <input type="file" name="file2" class="form-control" required accept="pdf/*">
+               
+            </div>
+
+         
+            <br>
+
+            <div class="d-flex justify-content-center">
+              <button type="submit"
+                class="btn btn-light btn-block btn-lg gradient-custom-4 text-body"> Register</button>
+            </div>
+            <div class="d-flex justify-content-center">
+                <a style="text-decoration: none;" href="/adminhome"><button type="button"
+                  class="btn btn-light btn-block btn-lg gradient-custom-4 text-body"> Home</button></a>
+              </div>
+            <div class="pp">
+            
+            <p class="text-center text-muted mt-5 mb-0" >Have already an account? <a href="/login" class="fw-bold " style="text-decoration: none; color: rgb(191, 191, 191);"><u>Login here</u></a></p>
+        </div>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+    </section>
+    </div>
+   
+</body>
+
+</html>
+
+
+

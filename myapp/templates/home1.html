@@ -1,0 +1,225 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="background-radial-gradient overflow-hidden">
+        <style media="screen">
+            *,
+      *:before,
+      *:after{
+          padding: 0;
+          margin: 0;
+          box-sizing: border-box;
+      }
+      body{
+          background-color: #080710;
+      }
+      /* .background{
+          width: 430px;
+          height: 520px;
+          position: absolute;
+          transform: translate(-50%,-50%);
+          left: 50%;
+          top: 50%;
+      } */
+      /* .background .shape{
+          height: 200px;
+          width: 200px;
+          position: absolute;
+          border-radius: 50%;
+      } */
+      .shape:first-child{
+          background: linear-gradient(
+              #1845ad,
+              #23a2f6
+          );
+          left: -80px;
+          top: -80px;
+      }
+      .shape:last-child{
+          background: linear-gradient(
+              to right,
+              #ff512f,
+              #f09819
+          );
+          right: -30px;
+          bottom: -80px;
+      }
+      form *{
+          font-family: 'Poppins',sans-serif;
+          color: #ffffff;
+          letter-spacing: 0.5px;
+          outline: none;
+          border: none;
+      }
+      form h3{
+          margin-top: 300px;
+          font-size: 32px;
+          font-weight: 500;
+          line-height: 42px;
+          text-align: center;
+      }
+      /* button{
+          margin-top: 50px;
+          width: 100%;
+          background-color: #ffffff;
+          color: #080710;
+          padding: 15px 0;
+          font-size: 18px;
+          font-weight: 600;
+          border-radius: 5px;
+          cursor: pointer;
+      } */
+      .button-div{
+          margin-left: 620px;
+          margin-top: 30px;
+          width:300px;
+          height:60px;
+          border:2px solid #eee;
+          background-color:#b6bdc9;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          border-radius:7px;
+          padding:7px;
+      }
+      
+      .signup-button{
+          width:100%;
+          height:55px;
+          margin-right:7px;
+          border:none;
+          border-radius:5px;
+          background-color:#000000;
+          font-size:17px;
+          font-weight:600;
+          cursor:pointer;
+      }
+      
+      .login-button{
+          width:100%;
+          height:55px;
+          border:none;
+          border-radius:5px;
+          font-size:17px;
+          font-weight:600;
+          color:#fff;
+          background-color:#ff512f;
+          cursor:pointer;
+      }
+      
+      
+      .login-button:hover{
+          
+          background-color:rgb(243, 52, 4);
+      }
+      
+      
+      .signup-button:hover{
+          
+          background-color:#131313;
+      }
+      a{
+          text-decoration: none;
+      }
+      @media (max-width: 600px) {
+          .button-div {
+          margin-left: 15px;
+          width: 250px;
+      
+         
+      }
+      
+      }
+          .background-radial-gradient {
+            background-color: hsl(218, 41%, 15%);
+            background-image: radial-gradient(650px circle at 0% 0%,
+                hsl(218, 41%, 35%) 15%,
+                hsl(218, 41%, 30%) 35%,
+                hsl(218, 41%, 20%) 75%,
+                hsl(218, 41%, 19%) 80%,
+                transparent 100%),
+              radial-gradient(1250px circle at 100% 100%,
+                hsl(218, 41%, 45%) 15%,
+                hsl(218, 41%, 30%) 35%,
+                hsl(218, 41%, 20%) 75%,
+                hsl(218, 41%, 19%) 80%,
+                transparent 100%);
+          }
+      
+          #radius-shape-1 {
+            height: 220px;
+            width: 220px;
+            top: -60px;
+            left: -130px;
+            background: radial-gradient(#44006b, #ad1fff);
+            overflow: hidden;
+          }
+      
+          #radius-shape-2 {
+            border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+            bottom: -60px;
+            right: -110px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(#44006b, #ad1fff);
+            overflow: hidden;
+          }
+      
+          .bg-glass {
+            background-color: hsla(0, 0%, 100%, 0.9) !important;
+            backdrop-filter: saturate(200%) blur(25px);
+          }
+        </style>
+          
+
+          
+      
+        <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+          <div class="row gx-lg-5 align-items-center mb-5">
+            <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+              <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+                The best offer <br />
+                <span style="color: hsl(218, 81%, 75%)">for your business</span>
+              </h1>
+              <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Temporibus, expedita iusto veniam atque, magni tempora mollitia
+                dolorum consequatur nulla, neque debitis eos reprehenderit quasi
+                ab ipsum nisi dolorem modi. Quos?
+              </p>
+            </div>
+      
+            <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+              <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+              <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+      
+              <div class="card bg-glass">
+                <div class="card-body px-4 py-5 px-md-5">
+                  <form>
+                      <form action="">
+                          <div class="container">
+                          <h3>CHOOSE OPTION</h3>
+                      <div class="button-div">
+                      
+                          <button class="signup-button"><a href="/addtrainer">Signup</a> </button>
+                          <button class="login-button"><a href="/login">Login </a></button>
+                      </div><br><br>
+                  </div>
+                  </form>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+   
+</body>
+</html>
+<!-- Section: Design Block -->

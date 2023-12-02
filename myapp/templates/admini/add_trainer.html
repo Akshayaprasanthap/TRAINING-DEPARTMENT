@@ -14,6 +14,7 @@
     <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
 </head>
 <style media="screen">
+
     *,
 *:before,
 *:after{
@@ -21,6 +22,7 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 /* .background{
     width: 430px;
     height: 520px;
@@ -57,7 +59,7 @@ input{
     height: 50px;
     width: 100%;
     color: white;
-    background-color: rgba(255,255,255,0.07);
+    background-color: rgba(81, 81, 81, 0.07);
     border-radius: 3px;
     padding: 0 10px;
     margin-top: 8px;
@@ -88,15 +90,45 @@ p{
 h2{
     font-size: 2vw; 
     color: white;
+    font-family: cursive;
 }
+
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+.pp{
+    font-size: 2vw;
+}
+
 @media (max-width:400px) {
     p{
-        font-size: 3vw;
+        font-size: 4vw;
     }
     h2{
         font-size: 5vw;
     }
+    .pp{
+        font-size: 4vw;
+    }
 }
+
 </style>
 
 <body>
@@ -105,7 +137,8 @@ h2{
         <div class="shape"></div>
     </div>
         
-<section class="100vh bg-image" style="background-color: rgb(29, 27, 27);">
+<section class="100vh bg-image" style="background-image: url(https://w0.peakpx.com/wallpaper/774/176/HD-wallpaper-bubbles-circles-dark-form.jpg); background-repeat: no-repeat; background-size: cover;">
+    <!-- background-color: rgb(29, 27, 27); -->
 <div class="mask d-flex align-items-center h-100 gradient-custom-3">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -118,7 +151,7 @@ h2{
             {% csrf_token %}
             <div class="form-outline mb-4">
                 <label for="" class="form-label" style="color: white;">Name:</label>
-                <input type="text" name="first_name" required pattern="[A-Za-z]{1,32}" class="form-control" placeholder="Enter your Name"><br>
+                <input type="text" name="first_name" required pattern="[a-zA-Z]+[ ][a-zA-Z]+{1,32}" class="form-control" placeholder="Enter your Name"><br>
             </div>
             <div class="form-outline mb-4">
                 <label for="" class="form-label" style="color: white;">Place:</label>
@@ -189,8 +222,10 @@ h2{
               <button type="submit"
                 class="btn btn-light btn-block btn-lg gradient-custom-4 text-body"> Register</button>
             </div>
+            <div class="pp">
             
             <p class="text-center text-muted mt-5 mb-0" >Have already an account? <a href="/login" class="fw-bold " style="text-decoration: none; color: rgb(191, 191, 191);"><u>Login here</u></a></p>
+        </div>
         </form>
     </div>
 </div>
